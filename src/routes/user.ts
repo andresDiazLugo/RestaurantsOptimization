@@ -1,9 +1,10 @@
-import { Router } from 'express'
+import { Router } from 'express';
+import {controllerSignUp} from '../controllers/controllerUser.js';
 
 const router = Router()
 
-router.get('/', (req, res) => {
-  res.send('estoy en la ruta de usuarios')
-})
+
+//ruta de signup o crear usuario
+router.post('/signUp',controllerSignUp);
 
 export { router }
