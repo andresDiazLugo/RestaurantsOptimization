@@ -7,3 +7,9 @@ export interface IUser extends Document{
     password: string,
     createAt?:Date;
 }
+
+export interface ResponseSignIn{
+    alert: string[] | [string[]],
+    user: IUser,
+    token: string
+}
