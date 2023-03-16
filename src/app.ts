@@ -7,10 +7,10 @@ import { router } from './routes/index.js'
 const whitelist = process.env.NODE_ENV === 'development' ? ['http://localhost:3002', 'http://localhost:5173', 'http://localhost:3000'] : [process.env.CLIENT_URL ?? '']
 
 class App {
-  private readonly app: Application
+  public app: Application
 
   constructor () {
-    this.app = express()
+    this.app = express();
   }
 
   // configuraciones del server
@@ -52,4 +52,4 @@ app.middlewares()
 app.routes()
 app.server()
 
-export default App
+export default app.app

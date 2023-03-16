@@ -1,5 +1,5 @@
 import { type Request, type Response } from 'express'
-import { SalesService } from '../services/sales.service'
+import { SalesService } from '../services/sales.service.js'
 
 // eslint-disable-next-line @typescript-eslint/no-extraneous-class
 export default class SalesController {
