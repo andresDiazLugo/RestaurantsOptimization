@@ -8,7 +8,6 @@ interface ReturnCreateProduct {
 }
 
 export const CreateProduct = async ({ price, description, title, file }: NewProduct): Promise<ReturnCreateProduct> => {
-  
   try {
     console.log(file)
     const { response, error } = await uploadImgToCloudinary({ filePath: file.path })
@@ -24,7 +23,7 @@ export const CreateProduct = async ({ price, description, title, file }: NewProd
       imageUrl: response.secure_url
     })
     const newProduct = await product.save()
-    return { product: newProduct }
+    return { product: newProduct as ProductType }
   } catch (error: any) {
     console.error(error)
     return {
