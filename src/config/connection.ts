@@ -3,14 +3,15 @@ import { connect } from 'mongoose'
 
 config()
 
-const { DB_URL_DEVELOPMENT, DB_URL_PRODUCTION, NODE_ENV } = process.env
+const { DB_URL_TEST, DB_URL_DEVELOPMENT, DB_URL_PRODUCTION, NODE_ENV } = process.env
 
 const DB_CONNECTIONS = {
   development: DB_URL_DEVELOPMENT,
-  production: DB_URL_PRODUCTION
+  production: DB_URL_PRODUCTION,
+  test: DB_URL_TEST
 }
 
-type Enviroment = 'development' | 'production'
+type Enviroment = 'development' | 'production' | 'test'
 
 export const connection = async (): Promise<void> => {
   console.log({ DB_URL_DEVELOPMENT, DB_URL_PRODUCTION, NODE_ENV })

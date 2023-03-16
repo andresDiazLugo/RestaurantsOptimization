@@ -6,7 +6,7 @@ import { generateToken } from '../utils/token.js'
 
 export const signUp = async (
   dateBody: IUser
-): Promise<string[] | undefined> => {
+): Promise<string[] | [string[]] | undefined> => {
   try {
     const alertas = new AlertasUser()
     // busco el nombre de usuario y tambien el email para comprobar que no existe registro
@@ -30,15 +30,7 @@ export const signUp = async (
 
 export const signIn = async (
   dateBody: IUser
-): Promise<
-| {
-  alert: string[]
-  user: IUser | null | true
-  token: string
-}
-| string[]
-| undefined
-> => {
+): Promise<string[] | [string[]] | { alert: string[] | [string[]], user: true | IUser | null, token: string } | undefined> => {
   try {
     const alertas = new AlertasUser()
     // voy a buscar en la base de datos si exite el usuario o email

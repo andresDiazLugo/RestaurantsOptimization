@@ -4,9 +4,9 @@ export class AlertasUser {
     this.alerts = []
   }
 
-  addAlerts (type: string, msg: string): string[] {
-    const arrayMSG: string[] = []
-    arrayMSG.push(msg)
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  addAlerts (type: string, msg: string): string[] | [string[]] {
+    const arrayMSG: string[] = [msg]
     if (type === 'error') {
       this.alerts[0] = type
       this.alerts[1] = arrayMSG
