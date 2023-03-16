@@ -18,8 +18,7 @@ export const connection = async (): Promise<void> => {
   try {
     const enviroment = NODE_ENV ?? 'development'
     const mongoURI = DB_CONNECTIONS[enviroment as Enviroment]
-    
-    await connect(mongoURI ?? '')    
+    await connect(mongoURI ?? '')
     console.log('Conexion exitosa a la base de datos')
   } catch (error) {
     console.log('Error al conectar a la base de datos', error)

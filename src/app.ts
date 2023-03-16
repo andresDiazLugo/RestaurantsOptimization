@@ -10,7 +10,7 @@ class App {
   public app: Application
 
   constructor () {
-    this.app = express();
+    this.app = express()
   }
 
   // configuraciones del server
