@@ -20,6 +20,14 @@ const userSchema  = new Schema({
           }
 })
 
+userSchema.set('toJSON', {
+      transform: (_document, User) => {
+        User.id = User._id
+        delete User._id
+        delete User.__v
+      }
+    })
+
 export const User = model<IUser>('User',userSchema);
 
 
