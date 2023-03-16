@@ -1,15 +1,15 @@
-import {Document} from 'mongoose';
+import { type Document } from 'mongoose'
 
-export interface IUser extends Document{
-    username: string,
-    phone: string,
-    email: string,
-    password: string,
-    createAt?:Date;
+export interface IUser extends Document {
+  username: string
+  phone: string
+  email: string
+  password: string
+  createAt?: Date
 }
 
-export interface ResponseSignIn{
-    alert: string[] | [string[]],
-    user: IUser,
-    token: string
+export interface ResponseSignIn {
+  alert: string[] | [string[]]
+  user: IUser
+  token: string
 }

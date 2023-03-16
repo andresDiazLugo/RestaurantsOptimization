@@ -14,27 +14,26 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage,
   dest: destFiles,
-  // limits: {
-  //   fileSize: (1000 * 1000) * 3
-  // },
+  limits: {
+    fileSize: (1000 * 1000) * 3
+  },
   fileFilter: (_req, file, callback) => {
+    console.log(file)
+    const imageTypes = /jpeg|jpg|png/
 
-  //  console.log(file)
-  //   const imageTypes = /jpeg|jpg|png/
+    const mineTypes = imageTypes.test(file.mimetype)
 
-  //   const mineTypes = imageTypes.test(file.mimetype)
+    const extType = imageTypes.test(path.extname(file.originalname))
 
-  //   const extType = imageTypes.test(path.extname(file.originalname))
-
-  //   if (mineTypes && extType) {
-  //     callback(null, true)
-  //   }
-  //   callback(null, false)
-  const formatFile = file.mimetype.split("/")[1].toLocaleLowerCase();
-    if (formatFile ==="jpeg" || formatFile ==="jpg" || formatFile === "png") {
+    if (mineTypes && extType) {
       callback(null, true)
     }
-      callback(null, false)
+    callback(null, false)
+  // const formatFile = file.mimetype.split("/")[1].toLocaleLowerCase();
+  //   if (formatFile ==="jpeg" || formatFile ==="jpg" || formatFile === "png") {
+  //     callback(null, true)
+  //   }
+  //     callback(null, false)
   }
 })
 
