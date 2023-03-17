@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { Router } from 'express'
 import { controllerSignUp, controllerSignIn } from '../controllers/controllerUser.js'
-
+import { tokenValidation } from '../middlewares/proctectPath.js'
 const router = Router()
 
 // ruta de signup o crear usuario
-router.post('/signUp', controllerSignUp)
+router.post('/signUp', tokenValidation, controllerSignUp)
 // ruta de inicio de secion
 router.post('/signIn', controllerSignIn)
 

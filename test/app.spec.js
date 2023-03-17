@@ -29,6 +29,9 @@ describe('POST /user', function () {
         password: 'argentina18A'
       })
       // eslint-disable-next-line no-undef
-    expect(response.body).toBeInstanceOf(Array)
+    expect(response.body).toEqual([
+      'error',
+      ['Ya existe un usuario con este nombre']
+    ])
   })
 })

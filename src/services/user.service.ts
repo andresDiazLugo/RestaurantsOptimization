@@ -24,7 +24,7 @@ export const signUp = async (
     await newUser.save()
     return alertas.addAlerts('success', 'usuario creado  con exito ')
   } catch (error: any) {
-    console.error('error', error)
+    throw new Error(error.message)
   }
 }
 
@@ -48,15 +48,17 @@ export const signIn = async (
         return alertas.addAlerts('error', msg)
       }
       // si el usuario existe voy a devolver un dato para el cliente que incluíra un token
-      const token = generateToken(searchEmail?.id ?? searchName?.id)
+      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions, @typescript-eslint/prefer-nullish-coalescing
+      const token = generateToken(searchEmail?.id || searchName?.id)
       return {
         alert: alertas.addAlerts('success', 'usuario iniciado con exito'),
-        user: searchEmail !== null || searchName,
+        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions, @typescript-eslint/prefer-nullish-coalescing
+        user: searchEmail || searchName,
         token
       }
     }
     return alertas.addAlerts('error', msg)
   } catch (error: any) {
-    console.error('error', error)
+    throw new Error(error.message)
   }
 }
