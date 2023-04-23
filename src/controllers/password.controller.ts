@@ -8,7 +8,6 @@ export const passwordController = async (
 ): Promise<void> => {
   try {
     const { email } = req.body
-
     const data = await sendMailToResetPassword({ email })
     res.send(data)
   } catch (error) {
@@ -23,7 +22,6 @@ export const resetPasswordController = async (
   try {
     const { token } = req.params
     const { newPassword } = req.body
-
     const data = await resetPassword({ token, newPassword })
     res.send(data)
   } catch (error) {

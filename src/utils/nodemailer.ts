@@ -3,7 +3,7 @@ import { type Mail } from '../interface/mail'
 
 export async function SendMail ({ to, subject, html }: Mail): Promise<any> {
   const { USER_EMAIL, APP_PASS, USER_EMAIL_TO } = process.env
-
+  console.log(USER_EMAIL)
   const mailOptions = {
     to,
     from: USER_EMAIL_TO,

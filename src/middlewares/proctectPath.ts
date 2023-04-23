@@ -7,7 +7,7 @@ export const tokenValidation = (req: Request, res: Response, next: NextFunction)
   if (!token) return res.status(401).json('acceso denegado')
   try {
     const payload = verifyToken(token)
-    req.userId = payload.id
+    req.userId = payload.userid
   } catch (error) {
     return res.status(404).json({
       msg: 'Acceso denegado'

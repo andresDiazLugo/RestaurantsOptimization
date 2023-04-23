@@ -6,7 +6,7 @@ export const generateToken = (userId: string | undefined): string => {
   return jwt.sign(payload, secret)
 }
 
-export const verifyToken = (token: string): { id: number } => {
+export const verifyToken = (token: string): { userId: string } => {
   const decoded = jwt.verify(token, secret)
-  return decoded as { id: number }
+  return decoded as { userId: string }
 }
