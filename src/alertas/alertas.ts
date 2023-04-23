@@ -14,7 +14,7 @@ export class AlertasUser {
     } else {
       this.alerts[0] = type
       this.alerts[1] = arrayMSG
-      console.log(this.alerts)
+      // console.log(this.alerts)
       return this.alerts
     }
   }
